@@ -4,190 +4,201 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Movie Trailer</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #0c0c0c; /* Black background */
-      color: white;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
-    }
+ <style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #0c0c0c; /* Black background */
+    color: white;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+  }
 
-    /* Logo */
-    img {
-      max-width: 100px;
-      margin-bottom: 10px;
-    }
+  /* Logo */
+  .logo img {
+    max-width: 165px;
+    margin-bottom: 20px;
+  }
 
-    /* Video Container */
-    .video-container {
-      position: relative;
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto;
-      padding-top: 56.25%;
-      background-color: black;
-    }
+  /* Video Container */
+  .video-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    background-color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
 
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
 
-    /* Movie Info Box */
-    .movie-info {
-      margin-top: 20px;
-      padding: 20px;
-      background-color: #1c1c1c; /* Slightly lighter black */
-      border: 1px solid #e50914; /* Red border */
-      border-radius: 10px;
-      display: inline-block;
-      max-width: 500px;
-      text-align: left;
-    }
+  /* Movie Info Box */
+  .movie-info {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #1c1c1c; /* Slightly lighter black */
+    border: 1px solid #e50914; /* Red border */
+    border-radius: 10px;
+    display: inline-block;
+    max-width: 500px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(229, 9, 20, 0.3);
+  }
 
-    .movie-info h2 {
-      font-size: 24px;
-      color: #e50914; /* Red heading */
-      margin: 0 0 10px 0;
-    }
+  .movie-info h2 {
+    font-size: 24px;
+    color: #e50914; /* Red heading */
+    margin: 0 0 10px 0;
+  }
 
-    .movie-info p {
-      font-size: 16px;
-      color: #ddd;
-      margin: 0;
-    }
+  .movie-info p {
+    font-size: 16px;
+    color: #ddd;
+    margin: 0;
+  }
 
-    /* Watch Now Button */
-    .watch-now-btn {
-      margin-top: 30px;
-      padding: 15px 30px;
-      background-color: #e50914;
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+  /* Watch Now Button */
+  .watch-now-btn {
+    margin-top: 30px;
+    padding: 15px 30px;
+    background-color: #e50914;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
 
-    .watch-now-btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 4px 10px rgba(229, 9, 20, 0.5);
-    }
+  .watch-now-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(229, 9, 20, 0.5);
+  }
 
-    /* Download Buttons */
-    .download-btns {
-      margin-top: 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  /* Download Buttons */
+  .download-btns {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .download-btn {
-      padding: 10px 20px;
-      background-color: #28a745; /* Green for non-premium buttons */
-      color: white;
-      text-decoration: none;
-      font-size: 16px;
-      margin: 10px 0; /* Vertical spacing */
-      display: inline-block;
-      border-radius: 5px;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
+  .download-btn {
+    padding: 10px 20px;
+    background-color: #28a745; /* Green for non-premium buttons */
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 10px 0; /* Vertical spacing */
+    display: inline-block;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+  }
 
-    .download-btn:hover {
-      background-color: #218838; /* Slightly darker green on hover */
-      transform: scale(1.05);
-    }
+  .download-btn:hover {
+    background-color: #218838; /* Slightly darker green on hover */
+    transform: scale(1.05);
+  }
 
-    .premium {
-      background-color: #e50914; /* Red for premium buttons */
-    }
+  .premium {
+    background-color: #e50914; /* Red for premium buttons */
+  }
 
-    .premium:hover {
-      background-color: #ff4d4d; /* Lighter red on hover */
-    }
+  .premium:hover {
+    background-color: #ff4d4d; /* Lighter red on hover */
+  }
 
-    /* Popup */
-    .overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      z-index: 999;
-    }
+  /* Popup */
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+  }
 
-    .popup {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: #121212; /* Dark background for popup */
-      color: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      z-index: 1000;
-    }
+  .popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #121212; /* Dark background for popup */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    text-align: center;
+  }
 
-    .popup h3 {
-      color: #e50914;
-    }
+  .popup h3 {
+    color: #e50914;
+  }
 
-    .popup button {
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #e50914;
-      border: none;
-      color: white;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
+  .popup button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #e50914;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
 
-    .popup button:hover {
-      background-color: #ff4d4d;
-    }
-  </style>
+  .popup button:hover {
+    background-color: #ff4d4d;
+  }
+</style>
 </head>
 <body>
+
   <!-- Company Logo -->
-  <div>
+  <div class="logo">
     <img src="https://i.imghippo.com/files/pbu9833bvY.webp" alt="Company Logo">
   </div>
 
   <!-- Video Player -->
   <div class="video-container">
-    <iframe src="https://youtube.com/embed/6YMY62tMLUA" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <iframe src="https://geo.dailymotion.com/player.html?video=k2eyDTcLeOLuN5BX812" 
+      allowfullscreen
+      title="Dailymotion Video Player"
+      allow="web-share">
+    </iframe>
   </div>
 
   <!-- Movie Info Box -->
   <div class="movie-info">
     <h2>Name: <span id="movieTitle">Trendy Movie</span></h2>
-    <p id="movieDescription">COUNTRY - INDIA, ADIO - HINDI,  ACTION AND HOROR</p>
+    <p id="movieDescription">ADIO-HINDI, COUNTRY- SOUTH KOREA, QUALITY- 720,480P</p>
   </div>
 
   <!-- Highlighted Watch Now Button -->
-  <div>
+  <div class="watch-now">
     <a href="https://drive.google.com/file/d/1ECayk_-YDAJoqzt7DEAJOCf1d9968AuV/view?usp=drivesdk" target="_self" class="watch-now-btn">WATCH NOW</a>
   </div>
 
   <!-- Download Buttons -->
   <div class="download-btns">
     <p style="font-size: 20px; color: #e50914; margin-bottom: 15px;">Download Now:</p>
-  <a href="#" class="download-btn premium" data-url="https://indi-files-drive.com/download/eO2y-hx09bS">👑1080P (2.66 GB)</a>
-     <a href="https://indi-files-drive.com/download/LwA1h4DrSXd" target="_self" class="download-btn">720P (1.22 GB)</a>
-<a href="https://indi-files-drive.com/download/ZaCfxREh8XL" target="_self" class="download-btn">480 ( 530 MB)</a>
+    <a href="#" class="download-btn premium" data-url="https://indi-files-drive.com/download/eO2y-hx09bS">👑1080P (2.66 GB)</a>
+    <a href="https://indi-files-drive.com/download/LwA1h4DrSXd" target="_self" class="download-btn">720P (1.22 GB)</a>
+    <a href="https://indi-files-drive.com/download/ZaCfxREh8XL" target="_self" class="download-btn">480 ( 530 MB)</a>
   </div>
 
   <!-- Popup -->
@@ -201,7 +212,7 @@
   <script>
     // Movie Information
     const movieTitle = "Bhool Bhulaiyaa 3";
-    const movieDescription = "ADIO - HINDI, COUNTRY- INDIA, ACTION AND HOROR";
+    const movieDescription = "ADIO - hindi, COUNTRY- india,";
 
     // Set movie title and description
     document.getElementById("movieTitle").textContent = movieTitle;
